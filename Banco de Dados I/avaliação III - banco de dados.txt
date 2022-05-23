@@ -1,0 +1,70 @@
+Avaliação Parcial III
+
+Nome: Bernardo Gularte Kirsch
+
+1) Faça uma consulta para retornar o nome, CPF e telefone de todos os funcionários.
+
+SELECT NOME, CPF, FONE FROM FUNCIONARIO;
+
+2) Faça uma consulta para retornar apenas o nome de todos os funcionários que trabalham no projeto com código 3.
+
+SELECT NOME
+FROM FUNCIONARIO, ALOCACAO
+WHERE FUNCIONARIO.IDFUNC = ALOCACAO.IDFUNC
+AND IDPROJ = 3;
+
+3) Faça uma consulta para listar o nome e o orçamento do projeto com código 2 e 4.
+
+SELECT NOME, ORCAMENTO
+FROM PROJETO
+WHERE IDPROJ IN (2,4);
+
+4) Faça uma consulta para listar a descrição e o salário da categoria com código 3.
+
+SELECT DESCRICAO, SALARIO
+FROM CATEGORIA
+WHERE IDCAT = 3;
+
+5) Faça uma consulta para listar o nome, CPF e a descrição da categoria de todos os funcionários.
+
+SELECT NOME, CPF, DESCRICAO
+FROM FUNCIONARIO, CATEGORIA
+WHERE FUNCIONARIO.IDCAT = CATEGORIA.IDCAT;
+
+6) Faça uma consulta para retornar o nome de todos os Funcionários que trabalham no projeto de código 2.
+
+SELECT NOME
+FROM FUNCIONARIO, ALOCACAO
+WHERE FUNCIONARIO.IDFUNC = ALOCACAO.IDFUNC
+AND IDPROJ = 2;
+
+7) Faça uma consulta para retornar o nome de todos os projetos e os funcionários que trabalham neles.
+
+SELECT PROJETO.NOME, FUNCIONARIO.NOME
+FROM PROJETO, FUNCIONARIO, ALOCACAO
+WHERE PROJETO.IDPROJ = ALOCACAO.IDPROJ
+AND FUNCIONARIO.IDFUNC = ALOCACAO.IDFUNC;
+
+8) Faça uma consulta para retornar o nome, a descrição da categoria e o salário de todos os funcionários que trabalham no projeto de código 1.
+
+SELECT FUNCIONARIO.NOME, CATEGORIA.DESCRICAO, CATEGORIA.SALARIO
+FROM FUNCIONARIO, CATEGORIA, ALOCACAO
+WHERE FUNCIONARIO.IDFUNC = ALOCACAO.IDFUNC
+AND FUNCIONARIO.IDCAT = CATEGORIA.IDCAT
+AND ALOCACAO.IDPROJ = 1;
+
+9) Faça uma consulta para retornar a descrição de todas as categorias que tem salário maior que R$ 2.500,00.
+
+SELECT DESCRICAO
+FROM CATEGORIA
+WHERE SALARIO > 2500;
+
+10) Faça uma consulta para listar o nome e o CPF de todos os funcionários que tem salário entre R$ 1.500,00 e R$ 3.000,00.
+
+SELECT FUNCIONARIO.NOME, FUNCIONARIO.CPF
+FROM FUNCIONARIO, CATEGORIA
+WHERE FUNCIONARIO.IDCAT = CATEGORIA.IDCAT
+AND CATEGORIA.SALARIO BETWEEN 1500 AND 3000;
+
+
+
